@@ -1,0 +1,17 @@
+{
+  "name": "PIX DA SORTE",
+  "short_name": "PixDaSorte",
+  "description": "Roleta Oficial de Prêmios - Gire e ganhe instantaneamente",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#04000F",
+  "theme_color": "#04000F",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "256x256",
+      "type": "image/x-icon"
+    }
+  ]
+}
