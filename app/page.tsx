@@ -174,7 +174,6 @@ export default function Home() {
         if (data && !data.error) {
           setConfig({
             title: data.title || 'ROLETA DO PIX',
-            title: data.title || 'ROLETA DO PIX',
             prize: data.prize || 'Pix de R$ 50',
             forcedWinner: data.forced_winner || '',
             participants: data.participants && data.participants.length >= 2 ? data.participants : ['R$ 100', 'R$ 50', 'Tente Novamente', 'R$ 200'],
