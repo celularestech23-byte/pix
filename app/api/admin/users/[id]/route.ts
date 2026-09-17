@@ -2,10 +2,10 @@ import { NextRequest, NextResponse } from 'next/server';
 import { createServiceClient } from '@/lib/supabase';
 import { verifyAdminAuth, errorResponse } from '@/lib/security';
 
-export async function PUT(req: NextRequest, { params }: { params: { id: string } }) {
+export async function PUT(req: NextRequest, { params }: { params: Promise<{ id: string }> }) {
   if (!verifyAdminAuth(req)) return errorResponse('Não autorizado.', 401);
 
-  const { id } = params;
+  const { id } = await params;
   try {
     const body = await req.json();
     const db = createServiceClient();
@@ -26,10 +26,10 @@ export async function PUT(req: NextRequest, { params }: { params: { id: string }
   }
 }
 
-export async function DELETE(req: NextRequest, { params }: { params: { id: string } }) {
+export async function DELETE(req: NextRequest, { params }: { params: Promise<{ id: string }> }) {
   if (!verifyAdminAuth(req)) return errorResponse('Não autorizado.', 401);
 
-  const { id } = params;
+  const { id } = await params;
   try {
     const db = createServiceClient();
     const { error } = await db.from('users').delete().eq('id', id);

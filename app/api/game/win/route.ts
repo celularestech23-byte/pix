@@ -9,7 +9,7 @@ export async function POST(req: NextRequest) {
       return errorResponse('Dados inválidos.', 400);
     }
 
-    const { userId, result } = body;
+    const { userId, result } = body as { userId: string, result: string };
     const db = createServiceClient();
 
     // 1. Get User
